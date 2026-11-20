@@ -90,7 +90,25 @@ Exercicios:
     em n e rewrite com lemas da biblioteca padrão (ex: plus_0_r, plus_succ_r).
   - Prove que forall n : nat, n = n.
 *)
-Inductive comutatividade : 
+(*Exercicio 3: comutatividade da adição.
+  O rascunho original terminava em "Inductive comutatividade :", que não compila:
+  comutatividade é uma propriedade a ser provada (Theorem), não um tipo indutivo.
+  A prova é por indução em n e usa dois lemas da biblioteca padrão que estão
+  sempre disponíveis (Coq.Init.Peano):
+    plus_n_O  : forall n, n = n + 0
+    plus_n_Sm : forall n m, S (n + m) = n + S m *)
+Theorem comutatividade : forall n m : nat, n + m = m + n.
+Proof.
+  intros n m.
+  induction n as [| n' IHn'].
+  - (* n = 0: a meta 0 + m = m + 0 simplifica para m = m + 0 *)
+    simpl. apply plus_n_O.
+  - (* n = S n': a meta simplifica para S (n' + m) = m + S n' *)
+    simpl. rewrite IHn'. apply plus_n_Sm.
+Qed.
 
-
-
+(*Exercicio 4: todo número é igual a si mesmo*)
+Theorem n_igual_n : forall n : nat, n = n.
+Proof.
+  intros n. reflexivity.
+Qed.

@@ -29,7 +29,7 @@ Repositório com listas de exercícios, provas e anotações de estudo da discip
 
 ### Anotações de estudo
 
-`Estudo-geral-COQ.v` reúne um roteiro de estudo: ambiente (CoqIDE, VsCoq, versão online), comandos básicos (`Inductive`, `Definition`, `Fixpoint`, `match`), um tipo indutivo `even` com provas de que 0, 2 e 4 são pares, e um resumo das táticas essenciais. O arquivo termina com uma definição inacabada (`Inductive comutatividade :`).
+`Estudo-geral-COQ.v` reúne um roteiro de estudo: ambiente (CoqIDE, VsCoq, versão online), comandos básicos (`Inductive`, `Definition`, `Fixpoint`, `match`), um tipo indutivo `even` com provas de que 0, 2 e 4 são pares, um resumo das táticas essenciais e, por fim, as provas da comutatividade da adição (`comutatividade`, por indução em `n`) e de `forall n, n = n` (`n_igual_n`).
 
 ## Tecnologias
 
@@ -44,7 +44,7 @@ Repositório com listas de exercícios, provas e anotações de estudo da discip
 ├── Lista2 - Mais sobre Indução.v      # enunciado da lista 2 (provas em aberto, com Admitted)
 ├── Lista3 - LIstas e Polimorfismo.v   # lista 3, com uma prova em aberto
 ├── Prova1.v                           # primeira prova (6/6/2022)
-├── New folder/                        # cópia idêntica dos arquivos .v da raiz
+├── New folder/                        # cópia dos arquivos .v da raiz (com a versão antiga, incompleta, do Estudo-geral-COQ.v)
 ├── Listas MFO/                        # listas 1, 2, 3, 5, 6 e 7 resolvidas, salvas em .txt
 └── Consulta MFO/
     ├── Listas/                        # as mesmas listas em .v (Exercicio1.v é o enunciado da lista 1)
@@ -56,10 +56,11 @@ Repositório com listas de exercícios, provas e anotações de estudo da discip
 Com o Coq instalado, cada arquivo `.v` pode ser verificado individualmente:
 
 ```bash
+coqc Estudo-geral-COQ.v
 coqc "Consulta MFO/Listas/ListaOpRel.v"
 ```
 
-Também é possível abrir os arquivos no CoqIDE ou no VS Code (VsCoq) para acompanhar as provas passo a passo. Os arquivos de `Listas MFO/` estão em `.txt`; para verificá-los, copie o conteúdo para um arquivo `.v`. `Estudo-geral-COQ.v` não compila até a definição final ser concluída.
+Também é possível abrir os arquivos no CoqIDE ou no VS Code (VsCoq) para acompanhar as provas passo a passo. Os arquivos de `Listas MFO/` estão em `.txt`; para verificá-los, copie o conteúdo para um arquivo `.v`.
 
 ## Autores
 
